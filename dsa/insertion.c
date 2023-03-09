@@ -8,13 +8,13 @@ int main(void) {
 
 	printf("Array elements are :\n");
 
-	for(i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}
 
 	n = n + 1;
 
-	while( j >= k ) {
+	while (j >= k) {
 		LA[j + 1] = LA[j];
 		j = j - 1;
 	}
@@ -23,7 +23,7 @@ int main(void) {
 
 	printf("Element after insertion :\n");
 
-	for(i = 0; i < n; i++){
+	for (i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}
 }

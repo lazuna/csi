@@ -8,7 +8,7 @@ int main(void) {
 
 	printf("Array elements are :\n");
 
-	for(i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}
 
@@ -16,7 +16,7 @@ int main(void) {
 
 	printf("Elements after updateion :\n");
 
-	for(i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}
 }

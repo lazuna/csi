@@ -6,19 +6,19 @@
 struct node {
 	int data;
 	int key;
-	struct node *next;
+	struct node* next;
 };
 
-struct node *head = NULL;
-struct node *current = NULL;
+struct node* head = NULL;
+struct node* current = NULL;
 
 // Display the list
 void printList() {
-	struct node *ptr = head;
+	struct node* ptr = head;
 	printf("\n[ ");
 
 	// Start from the beginning
-	while(ptr != NULL) {
+	while (ptr != NULL) {
 		printf("(%d, %d) ", ptr->key, ptr->data);
 		ptr = ptr->next;
 	}
@@ -44,7 +44,7 @@ void insertFirst(int key, int data) {
 // Delete first item
 struct node* deleteFirst() {
 	// Save reference to first link
-	struct node *tempLink = head;
+	struct node* tempLink = head;
 
 	// Mark next to first link as first
 	head = head->next;
@@ -60,9 +60,9 @@ bool isEmpty() {
 
 int length() {
 	int length = 0;
-	struct node *current;
+	struct node* current;
 
-	for(current = head; current != NULL; current = current->next) {
+	for (current = head; current != NULL; current = current->next) {
 		length++;
 	}
 	return length;
@@ -74,16 +74,17 @@ struct node* find(int key) {
 	struct node* current = head;
 
 	// If list is empty
-	if(head == NULL) {
+	if (head == NULL) {
 		return NULL;
 	}
 
 	// Navigate through list
-	while(current->key != key){
+	while (current->key != key) {
 		// If it is last node
-		if(current->next == NULL) {
+		if (current->next == NULL) {
 			return NULL;
-		} else {
+		}
+		else {
 			// Go to next link
 			current = current->next;
 		}
@@ -100,16 +101,17 @@ struct node* delete(int key) {
 	struct node* previous = NULL;
 
 	// If list is empty
-	if(head == NULL) {
+	if (head == NULL) {
 		return NULL;
 	}
 
 	// Navigate through list
-	while(current->key != key) {
+	while (current->key != key) {
 		// If it is last node
-		if(current->next != NULL) {
+		if (current->next != NULL) {
 			return NULL;
-		} else {
+		}
+		else {
 			// Store refrence to current link
 			previous = current;
 			// Move to next link
@@ -118,10 +120,11 @@ struct node* delete(int key) {
 	}
 
 	// Found a match, update the link
-	if(current == head) {
+	if (current == head) {
 		// Change first to point to next link
 		head = head->next;
-	} else {
+	}
+	else {
 		// Bypass the current link
 		previous->next = current->next;
 	}
@@ -131,17 +134,18 @@ struct node* delete(int key) {
 
 void sort() {
 	int i, j, k, tempKey, tempData;
-	struct node *current;
-	struct node *next;
+  
+	struct node* current;
+	struct node* next;
 
 	int size = length();
 	k = size;
 
-	for(i = 0; i < size -1; i++, k--) {
+	for (i = 0; i < size - 1; i++, k--) {
 		current = head;
 		next = head->next;
 
-		for(j = 1; j < k; j++){
+		for (j = 1; j < k; j++) {
 			tempData = current->data;
 			current->data = next->data;
 			next->data = tempData;
@@ -161,7 +165,7 @@ void reverse(struct node** head_ref) {
 	struct node* current = *head_ref;
 	struct node* next;
 
-	while(current != NULL) {
+	while (current != NULL) {
 		next = current->next;
 		current->next = prev;
 		prev = current;
@@ -171,7 +175,7 @@ void reverse(struct node** head_ref) {
 	*head_ref = prev;
 }
 
-int main(){
+int main() {
 	insertFirst(1, 10);
 	insertFirst(2, 20);
 	insertFirst(3, 30);
@@ -182,8 +186,8 @@ int main(){
 	printf("List: ");
 	printList();
 
-	while(!isEmpty()) {
-		struct node *temp = deleteFirst();
+	while (!isEmpty()) {
+		struct node* temp = deleteFirst();
 		printf("\nDeleted value: ");
 		printf("(%d, %d) ", temp->key, temp->data);
 	}
@@ -194,20 +198,21 @@ int main(){
 	insertFirst(2, 20);
 	insertFirst(3, 30);
 	insertFirst(4, 1);
-        insertFirst(5, 40);
-        insertFirst(6, 56);
+	insertFirst(5, 40);
+	insertFirst(6, 56);
 
 	printf("\nRestored List: ");
 	printList();
 	printf("\n");
 
-	struct node *foundLink = find(4);
+	struct node* foundLink = find(4);
 
-	if(foundLink != NULL) {
+	if (foundLink != NULL) {
 		printf("Element found: ");
 		printf("(%d, %d)", foundLink->key, foundLink->data);
 		printf("\n");
-	} else {
+	}
+	else {
 		printf("Element not found.");
 	}
 
@@ -217,13 +222,14 @@ int main(){
 	printf("\n");
 	foundLink = find(4);
 
-	if(foundLink != NULL) {
-                printf("Element found: ");
-                printf("(%d, %d)", foundLink->key, foundLink->data);
-                printf("\n");
-        } else {
-                printf("Element not found.");
-        }
+	if (foundLink != NULL) {
+		printf("Element found: ");
+		printf("(%d, %d)", foundLink->key, foundLink->data);
+		printf("\n");
+	}
+	else {
+		printf("Element not found.");
+	}
 
 	printf("\n");
 	sort();
