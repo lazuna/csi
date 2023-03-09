@@ -29,7 +29,7 @@ void printList() {
 // Insert link at the first location
 void insertFirst(int key, int data) {
 	// Create a link
-	struct node* link = (struct node*)malloc(sizeof(struct node));
+	struct node *link = (struct node*) malloc(sizeof(struct node));
 
 	link->key = key;
 	link->data = data;
@@ -134,6 +134,7 @@ struct node* delete(int key) {
 
 void sort() {
 	int i, j, k, tempKey, tempData;
+  
 	struct node* current;
 	struct node* next;
 

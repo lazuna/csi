@@ -6,6 +6,7 @@ int main(void) {
 	int item = 10, k = 3, n = 5;
 	int i = 0, j = n;
 	printf("Array elements are :\n");
+
 	for (i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}

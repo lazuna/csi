@@ -24,7 +24,7 @@ int main(void) {
 
 	printf("Array elements after deletion :\n");
 
-	for (i = 0; i < n; i++) {
+	for(i = 0; i < n; i++) {
 		printf("LA[%d] = %d \n", i, LA[i]);
 	}
 }
